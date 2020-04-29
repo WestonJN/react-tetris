@@ -64,7 +64,7 @@ export const TETROMINOS = {
         color: '227, 78, 78',
     },
 }
-
+//this code enable us to randomly select any of the tetromino letters
 export const randomTetromino = () => {
     const tetrominos = 'IJLOSTZ';
     const randTetromino =
