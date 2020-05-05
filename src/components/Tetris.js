@@ -35,11 +35,12 @@ const Tetris = () => {
                 <Display text="Level" />
               </div>
               )}
+              
               <StartButton />
             </aside>
             </StyledTetris>
         </StyledTetrisWrapper>
-    );
+    ); //Ternary operator that dispalys when the game is over ot th scores etc
 };
 
 export default Tetris;
