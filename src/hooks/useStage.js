@@ -3,7 +3,7 @@ import { createStage } from '../gameHelpers';
 
 //generate initail stage of game
 //clean stage
-export const useStage = (players, resetPlayer) => {
+export const useStage = (player, resetPlayer) => {
     const[stage, setStage] = useState(createStage());
 
     useEffect(() => {
@@ -14,22 +14,22 @@ export const useStage = (players, resetPlayer) => {
                 );
 
                 //then draw the tetromino
-                player.tetromino.forEach((row, y) =>{
+                player.tetromino.forEach((row, y) => {
                     row.forEach((value, x) => {
-                        if (value !== 0){
-                            newStage[y + player.pos.y][x + player.pod.x] =[
+                        if (value !== 0) {
+                            newStage[y + player.pos.y][x + player.pos.x] =[
                                 value,
-                                `$[player.collided ? 'merged' : 'clear']`,
-                            ]
+                                `${player.collided ? 'merged' : 'clear'}`,
+                            ];
                         }
-                    })
+                    });
+               }); 
 
-                })
+               return newStage;
         };
 
-        setStage(prev => updateStage(prev))
-
-    }, [])
+        setStage(prev => updateStage(prev));
+    }, [player.collided, player.pos.x, player.pos.y, player.tetromino]);
 
     return[stage, setStage]; 
-}
+};
