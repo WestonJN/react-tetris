@@ -6,7 +6,7 @@ import { STAGE_WIDTH } from '../gameHelpers';
 //inital state for the player
 export const usePlayer = () => {
     const [player, setPlayer] = useState({
-        pod: { x: 0, y: 0},
+        pos: { x: 0, y: 0},
         tetromino: TETROMINOS[0].shape,
         collided: false,
     });
